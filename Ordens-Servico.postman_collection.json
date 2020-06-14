@@ -1,0 +1,1575 @@
+{
+	"info": {
+		"_postman_id": "2e479b6c-5960-4901-a2fd-3f0e8c586aee",
+		"name": "Ordens-Servico",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/clientes 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4884a81-d4f5-4f5d-b160-74e37e69ffd0",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"let response = pm.response.json();",
+							"pm.globals.set(\"id_1\", response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz\",\n\t\"email\": \"luiz@teste.com\",\n\t\"telefone\": \"21 99999-8888\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "be76d788-992b-4e93-a714-58b29c2baa74",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"let response = pm.response.json();",
+							"pm.globals.set(\"id_2\", response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Maria\",\n\t\"email\": \"maria@teste.com\",\n\t\"telefone\": \"11 7777-6666\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes - 400 e-mail já existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8763ef69-4389-49fb-a92a-75ccd0506b82",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz\",\n\t\"email\": \"luiz@teste.com\",\n\t\"telefone\": \"21 99999-8888\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes - 400 json inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "33843c97-3644-4275-a4f5-5fea51d9b143",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz\"\n\t\"email\": \"luiz@teste.com\",\n\t\"telefone\": \"21 99999-8888\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes - 400 nome não enviado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "44844916-9086-4d15-9e4b-75c76f3ccec6",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"luiz@teste.com\",\n\t\"telefone\": \"21 99999-8888\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes - 400 e-mail inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b144b3fb-040a-471f-9382-9938f9426546",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz\",\n\t\"email\": \"luizteste.com\",\n\t\"telefone\": \"21 99999-8888\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes - 400 telefone inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba769203-8c57-4eb1-a415-fcb26fc87e05",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz\",\n\t\"email\": \"luiz@teste.com\",\n\t\"telefone\": \"21 99999-8888 9999999999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes - 400 campos inválidos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c461576d-d2b3-4137-bf0b-7a98cf5b6b90",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"\",\n\t\"email\": \"luizteste.com\",\n\t\"telefone\": \"21 99999-8888 9999999999\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes - 406 accept invalid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ac7a369-e30c-450c-a11d-eea5cd07b48d",
+						"exec": [
+							"pm.test(\"Status code is 406\", function () {\r",
+							"    pm.response.to.have.status(406);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd312575-9a60-4b1b-aeb4-b3eeceb23e00",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7ae884bb-4a48-40f3-8d82-fc5312d5f110",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/clientes/{{id_1}}",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"{{id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes/999 - 404 cliente não encontrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c673d5d8-4815-4919-b7ea-da497e524215",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/clientes/999",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6379dfc-826d-444c-a4b1-935ed0bbaec1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz Segundo\",\n\t\"email\": \"luiz-segundo@teste.com\",\n\t\"telefone\": \"21 99999-2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/{{id_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"{{id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes/:id - 400 json inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d29aeec-3b52-4a29-9df8-31aea0cfd473",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz Segundo\"\n\t\"email\": \"luiz-segundo@teste.com\",\n\t\"telefone\": \"21 99999-2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/{{id_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"{{id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes/:id - 400 e-mail inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16ffd6ba-ccb9-44f0-b132-acd37e6d7136",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz Segundo\",\n\t\"email\": \"luiz-segundo@teste.com 2\",\n\t\"telefone\": \"21 99999-2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/{{id_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"{{id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes/999 - 404 cliente não encontrado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8586cf6-83aa-466c-89a7-272a4e48f75a",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Luiz Segundo\",\n\t\"email\": \"luiz-segundo@teste.com\",\n\t\"telefone\": \"21 99999-2222\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e37384bd-96de-4acf-bd73-6e1e9f9f3cbc",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"ABERTA\");",
+							"});",
+							"",
+							"let response = pm.response.json();",
+							"pm.globals.set(\"os_1\", response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cliente\": {\n\t\t\"id\": {{id_1}}\n\t},\n\t\"descricao\": \"Formatação de PC.\",\n\t\"preco\": 300.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico - ignora dataFinalizacao",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7d1a34f2-0f3f-4f7e-8747-32fecd448ae4",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"ABERTA\");",
+							"});",
+							"",
+							"let response = pm.response.json();",
+							"pm.globals.set(\"os_2\", response.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cliente\": {\n\t\t\"id\": {{id_1}}\n\t},\n\t\"descricao\": \"Formatação de PC.\",\n\t\"preco\": 300.50,\n\t\"dataFinalizacao\": \"2020-04-25T16:01:30.1416939\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico - 400 cliente não enviado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a60b6cad-20a4-4a62-8aa9-cfbce030cb35",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"Formatação de PC.\",\n\t\"preco\": 300.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico - 400 id cliente não enviado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3bd919cf-f0c2-49ac-8725-4c3e26ad2ccc",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cliente\": {\n\t\t\n\t},\n\t\"descricao\": \"Formatação de PC.\",\n\t\"preco\": 300.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico - 400 cliente não existe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7098f9fe-9cdc-45c5-b70a-522b68103a0e",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"cliente\": {\n\t\t\"id\": 999\n\t},\n\t\"descricao\": \"Formatação de PC.\",\n\t\"preco\": 300.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06f2fc79-519b-4787-8458-1fe379e73265",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5abc180e-03f7-44c6-960c-135d18e98e06",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/999 - 404 ordem não encontrada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7bee5797-f077-49f9-a891-27227291f1e6",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id/comentarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0c75a81a-a851-4491-b7c5-66cbc9249a2d",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"Linux instalado.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/999/comentarios - 400 ordem não encontrada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a1616c95-d3a5-4ecc-85ce-78178cf608ba",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"Linux instalado.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/999/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"999",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id/comentarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8cc6b78d-0f8a-4c78-bc3a-dee3c3eb5a32",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"Linux instalado.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id/finalizacao",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46617568-c30a-419a-9c7e-a902246c0602",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}/finalizacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}",
+						"finalizacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "93ccdbca-3551-4c9c-8643-e9b346bce61c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(\"FINALIZADA\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id/finalizacao - 400 status diferente de aberta",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0bf55b1-c710-47cf-9f10-416a97425cc5",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}/finalizacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}",
+						"finalizacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id/comentarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1e196a36-d45a-4e08-a7e4-f306c7f7bc1a",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/999/comentarios - 404 ordem não encontrada",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4647caee-2772-4f2c-8800-861374faa848",
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/999/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"999",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico/:id/comentarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a2980dc7-0cb1-430e-bd6e-e9e01119b3b7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"descricao\": \"Linux instalado.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico/{{os_1}}/comentarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico",
+						"{{os_1}}",
+						"comentarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c1948b2e-01de-44c7-baae-92befc3c9c2a",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/ordens-servico",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6a24a2d-65f1-4faa-9e43-79e9e2ae09e2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ordens-servico",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ordens-servico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes/:id 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8432b204-f334-4a94-b884-18192fb5ed9c",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/{{id_1}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"{{id_1}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/clientes/:id 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bd6345ac-f9b3-4315-8dc7-2df6d4934e6a",
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/clientes/{{id_2}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"{{id_2}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/clientes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22eac236-ace9-4461-bd26-3e0f7453785a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.eql([]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/clientes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b8ca0751-e733-4053-a829-e0c9e164de2c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "59c45ed7-9c85-42fd-8862-5964e77dace7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
