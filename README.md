@@ -1,5 +1,5 @@
 # ordens-servico
-Spring REST com Maven, ModelMapper e Flyway
+Spring Boot Framework REST com Maven, ModelMapper e Flyway
 
 # Tecnologias
 Spring Boot  
